@@ -50,9 +50,7 @@ window.renderStatistics = function (ctx, names, times) {
     };
 
     var randomSaturation = getRandomInteger(MIN_SATURATION, MAX_SATURATION) + '%';
-
-    names[i] === 'Вы' ? ctx.fillStyle = 'rgba(255, 0, 0, 1)': ctx.fillStyle = 'hsl(240,' + randomSaturation + ', 60%)';
-
+    ctx.fillStyle = names[i] === 'Вы' ? ctx.fillStyle = 'rgba(255, 0, 0, 1)' : ctx.fillStyle = 'hsl(240,' + randomSaturation + ', 60%)';
     var dynamicBarHeight = (BAR_HEIGHT * times[i]) / maxTime;
     var dynamicCloudY = NAME_TEXT_Y - dynamicBarHeight - GAP;
     var dynamicCloudX = CLOUD_X + GAP + FONT_GAP * i;
