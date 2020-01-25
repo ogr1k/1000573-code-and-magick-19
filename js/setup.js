@@ -1,8 +1,8 @@
 'use strict';
-var WIZARD_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
-var WIZARD_SURNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
-var WIZARD_COLOR_COATS = ['rgb(215, 210, 55)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
-var WIZARD_EYES_COLOR = ['black', 'red', 'blue', 'yellow', 'green'];
+var WIZARDS_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
+var WIZARDS_SURNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
+var WIZARDS_COLOR_COATS = ['rgb(215, 210, 55)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
+var WIZARDS_EYES_COLOR = ['black', 'red', 'blue', 'yellow', 'green'];
 
 var userDialog = document.querySelector('.setup');
 userDialog.classList.remove('hidden');
@@ -10,44 +10,40 @@ userDialog.classList.remove('hidden');
 document.querySelector('.setup-similar').classList.remove('hidden');
 
 var similarListElement = document.querySelector('.setup-similar-list');
-var similarWizardTemplate = document.querySelector('#similar-wizard-template')
+var similarWizardTemplateElement = document.querySelector('#similar-wizard-template')
     .content
     .querySelector('.setup-similar-item');
 
-var getRandomInteger = function (min, max) {
-  var rand = min + Math.random() * (max + 1 - min);
+var getRandomIndex = function (max) {
+  var rand = Math.random() * max;
   return Math.floor(rand);
 };
 
-var maxIndexForName = WIZARD_NAMES.length - 1;
-var maxIndexForCoatColor = WIZARD_COLOR_COATS.length - 1;
-var maxIndexForEyesColor = WIZARD_EYES_COLOR.length - 1;
-
 var wizards = [
   {
-    name: WIZARD_NAMES[getRandomInteger(0, maxIndexForName)] + ' ' + WIZARD_SURNAMES[getRandomInteger(0, maxIndexForName)],
-    coatColor: WIZARD_COLOR_COATS[getRandomInteger(0, maxIndexForCoatColor)],
-    eyesColor: WIZARD_EYES_COLOR[getRandomInteger(0, maxIndexForEyesColor)]
+    name: WIZARDS_NAMES[getRandomIndex(WIZARDS_NAMES.length)] + ' ' + WIZARDS_SURNAMES[getRandomIndex(WIZARDS_NAMES.length)],
+    coatColor: WIZARDS_COLOR_COATS[getRandomIndex(WIZARDS_COLOR_COATS.length)],
+    eyesColor: WIZARDS_EYES_COLOR[getRandomIndex(WIZARDS_EYES_COLOR.length)]
   },
   {
-    name: WIZARD_NAMES[getRandomInteger(0, maxIndexForName)] + ' ' + WIZARD_SURNAMES[getRandomInteger(0, maxIndexForName)],
-    coatColor: WIZARD_COLOR_COATS[getRandomInteger(0, maxIndexForCoatColor)],
-    eyesColor: WIZARD_EYES_COLOR[getRandomInteger(0, maxIndexForEyesColor)]
+    name: WIZARDS_NAMES[getRandomIndex(WIZARDS_NAMES.length)] + ' ' + WIZARDS_SURNAMES[getRandomIndex(WIZARDS_NAMES.length)],
+    coatColor: WIZARDS_COLOR_COATS[getRandomIndex(WIZARDS_COLOR_COATS.length)],
+    eyesColor: WIZARDS_EYES_COLOR[getRandomIndex(WIZARDS_EYES_COLOR.length)]
   },
   {
-    name: WIZARD_NAMES[getRandomInteger(0, maxIndexForName)] + ' ' + WIZARD_SURNAMES[getRandomInteger(0, maxIndexForName)],
-    coatColor: WIZARD_COLOR_COATS[getRandomInteger(0, maxIndexForCoatColor)],
-    eyesColor: WIZARD_EYES_COLOR[getRandomInteger(0, maxIndexForEyesColor)]
+    name: WIZARDS_NAMES[getRandomIndex(WIZARDS_NAMES.length)] + ' ' + WIZARDS_SURNAMES[getRandomIndex(WIZARDS_NAMES.length)],
+    coatColor: WIZARDS_COLOR_COATS[getRandomIndex(WIZARDS_COLOR_COATS.length)],
+    eyesColor: WIZARDS_EYES_COLOR[getRandomIndex(WIZARDS_EYES_COLOR.length)]
   },
   {
-    name: WIZARD_NAMES[getRandomInteger(0, maxIndexForName)] + ' ' + WIZARD_SURNAMES[getRandomInteger(0, maxIndexForName)],
-    coatColor: WIZARD_COLOR_COATS[getRandomInteger(0, maxIndexForCoatColor)],
-    eyesColor: WIZARD_EYES_COLOR[getRandomInteger(0, maxIndexForEyesColor)]
+    name: WIZARDS_NAMES[getRandomIndex(WIZARDS_NAMES.length)] + ' ' + WIZARDS_SURNAMES[getRandomIndex(WIZARDS_NAMES.length)],
+    coatColor: WIZARDS_COLOR_COATS[getRandomIndex(WIZARDS_COLOR_COATS.length)],
+    eyesColor: WIZARDS_EYES_COLOR[getRandomIndex(WIZARDS_EYES_COLOR.length)]
   }
 ];
 
 var renderWizard = function (wizard) {
-  var wizardElement = similarWizardTemplate.cloneNode(true);
+  var wizardElement = similarWizardTemplateElement.cloneNode(true);
 
   wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
   wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor;
@@ -60,7 +56,3 @@ for (var i = 0; i < wizards.length; i++) {
   fragment.appendChild(renderWizard(wizards[i]));
 }
 similarListElement.appendChild(fragment);
-
-userDialog.querySelector('.setup-similar').classList.remove('hidden');
-
-
