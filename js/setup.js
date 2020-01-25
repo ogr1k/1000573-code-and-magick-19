@@ -53,13 +53,10 @@ for (var i = 0; i < 4; i++) {
   similarListElement.appendChild(wizardElement);
 }
 
-/* var similar = document.querySelector('setup-similar');
-
 var fragment = document.createDocumentFragment();
-var newElement = document.createElement('div');
-newElement.className = 'el';
-newElement.innerHTML = '<span>' + i + '</span>';
-fragment.appendChild(newElement);
+for (var i = 0; i < wizards.length; i++) {
+  fragment.appendChild(renderWizard(wizards[i]));
+}
+similarListElement.appendChild(fragment);
 
-
-firstPool.appendChild(fragment); */
+userDialog.querySelector('.setup-similar').classList.remove('hidden');
