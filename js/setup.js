@@ -19,27 +19,30 @@ var getRandomInteger = function (min, max) {
   return Math.floor(rand);
 };
 
+var maxIndexForName = WIZARD_NAMES.length - 1;
+var maxIndexForCoatColor = WIZARD_COLOR_COATS.length - 1;
+var maxIndexForEyesColor = WIZARD_EYES_COLOR.length - 1;
 
 var wizards = [
   {
-    name: WIZARD_NAMES[getRandomInteger(0, WIZARD_NAMES.length - 1)] + ' ' + WIZARD_SURNAMES[getRandomInteger(0, WIZARD_NAMES.length - 1)],
-    coatColor: WIZARD_COLOR_COATS[getRandomInteger(0, WIZARD_COLOR_COATS.length - 1)],
-    eyesColor: WIZARD_EYES_COLOR[getRandomInteger(0, WIZARD_EYES_COLOR.length - 1)]
+    name: WIZARD_NAMES[getRandomInteger(0, maxIndexForName)] + ' ' + WIZARD_SURNAMES[getRandomInteger(0, maxIndexForName)],
+    coatColor: WIZARD_COLOR_COATS[getRandomInteger(0, maxIndexForCoatColor)],
+    eyesColor: WIZARD_EYES_COLOR[getRandomInteger(0, maxIndexForEyesColor)]
   },
   {
-    name: WIZARD_NAMES[getRandomInteger(0, WIZARD_NAMES.length - 1)] + ' ' + WIZARD_SURNAMES[getRandomInteger(0, WIZARD_NAMES.length - 1)],
-    coatColor: WIZARD_COLOR_COATS[getRandomInteger(0, WIZARD_COLOR_COATS.length - 1)],
-    eyesColor: WIZARD_EYES_COLOR[getRandomInteger(0, WIZARD_EYES_COLOR.length - 1)]
+    name: WIZARD_NAMES[getRandomInteger(0, maxIndexForName)] + ' ' + WIZARD_SURNAMES[getRandomInteger(0, maxIndexForName)],
+    coatColor: WIZARD_COLOR_COATS[getRandomInteger(0, maxIndexForCoatColor)],
+    eyesColor: WIZARD_EYES_COLOR[getRandomInteger(0, maxIndexForEyesColor)]
   },
   {
-    name: WIZARD_NAMES[getRandomInteger(0, WIZARD_NAMES.length - 1)] + ' ' + WIZARD_SURNAMES[getRandomInteger(0, WIZARD_NAMES.length - 1)],
-    coatColor: WIZARD_COLOR_COATS[getRandomInteger(0, WIZARD_COLOR_COATS.length - 1)],
-    eyesColor: WIZARD_EYES_COLOR[getRandomInteger(0, WIZARD_EYES_COLOR.length - 1)]
+    name: WIZARD_NAMES[getRandomInteger(0, maxIndexForName)] + ' ' + WIZARD_SURNAMES[getRandomInteger(0, maxIndexForName)],
+    coatColor: WIZARD_COLOR_COATS[getRandomInteger(0, maxIndexForCoatColor)],
+    eyesColor: WIZARD_EYES_COLOR[getRandomInteger(0, maxIndexForEyesColor)]
   },
   {
-    name: WIZARD_NAMES[getRandomInteger(0, WIZARD_NAMES.length - 1)] + ' ' + WIZARD_SURNAMES[getRandomInteger(0, WIZARD_NAMES.length - 1)],
-    coatColor: WIZARD_COLOR_COATS[getRandomInteger(0, WIZARD_COLOR_COATS.length - 1)],
-    eyesColor: WIZARD_EYES_COLOR[getRandomInteger(0, WIZARD_EYES_COLOR.length - 1)]
+    name: WIZARD_NAMES[getRandomInteger(0, maxIndexForName)] + ' ' + WIZARD_SURNAMES[getRandomInteger(0, maxIndexForName)],
+    coatColor: WIZARD_COLOR_COATS[getRandomInteger(0, maxIndexForCoatColor)],
+    eyesColor: WIZARD_EYES_COLOR[getRandomInteger(0, maxIndexForEyesColor)]
   }
 ];
 
